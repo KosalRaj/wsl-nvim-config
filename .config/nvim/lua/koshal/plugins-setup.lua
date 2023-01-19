@@ -41,6 +41,7 @@ return packer.startup(function(use)
 
 	-- commenting with gc
 	use("numToStr/Comment.nvim")
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- file explorer
 	use("nvim-tree/nvim-tree.lua")
@@ -54,6 +55,7 @@ return packer.startup(function(use)
 	-- fuzzy finding w/ telescope
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
 	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
+	use({ "nvim-telescope/telescope-ui-select.nvim" }) -- for showing lsp code actions
 
 	-- autocompletion
 	use("hrsh7th/nvim-cmp") -- completion plugin
@@ -72,7 +74,7 @@ return packer.startup(function(use)
 	-- configuring lsp servers
 	use("neovim/nvim-lspconfig") -- easily configure language servers
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
+	-- use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
@@ -102,6 +104,16 @@ return packer.startup(function(use)
 		config = function()
 			require("koshal.plugins.whichkey").setup()
 		end,
+	})
+
+	-- markdown
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
 	})
 
 	if packer_bootstrap then

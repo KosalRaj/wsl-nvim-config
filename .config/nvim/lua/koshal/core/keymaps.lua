@@ -1,4 +1,4 @@
-vim.keymap.set("n", " ", "<Nop>")  -- remove cursor move on space press
+vim.keymap.set("n", " ", "<Nop>") -- remove cursor move on space press
 
 -- set leader key to space
 vim.g.mapleader = " "
@@ -58,3 +58,6 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+
+-- markdown preview keymap
+keymap.set("n", "<leader>mp", ":MarkdownPreviewToggle<cr>")
