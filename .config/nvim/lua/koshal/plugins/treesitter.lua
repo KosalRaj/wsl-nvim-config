@@ -35,4 +35,10 @@ treesitter.setup({
 	},
 	-- auto install above language parsers
 	auto_install = true,
+
+	-- Disable CursorHold autocmd of nvim-ts-commentstring plugin
+	context_commentstring = {
+		enable = true,
+		enable_autocmd = false,
+	},
 })
