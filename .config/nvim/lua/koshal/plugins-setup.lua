@@ -116,6 +116,8 @@ return packer.startup(function(use)
 		ft = { "markdown" },
 	})
 
+	use("mbbill/undotree")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

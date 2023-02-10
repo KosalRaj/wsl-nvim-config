@@ -61,3 +61,6 @@ keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if ne
 
 -- markdown preview keymap
 keymap.set("n", "<leader>mp", ":MarkdownPreviewToggle<cr>")
+
+-- undotreetoggle keymap
+keymap.set("n", "<leader>u", ":UndotreeToggle<cr>")
