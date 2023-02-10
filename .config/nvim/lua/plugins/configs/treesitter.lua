@@ -9,11 +9,17 @@ treesitter.setup({
 	-- enable syntax highlighting
 	highlight = {
 		enable = true,
+		additional_vim_regex_highlighting = false,
 	},
 	-- enable indentation
 	indent = { enable = true },
 	-- enable autotagging (w/ nvim-ts-autotag plugin)
 	autotag = { enable = true },
+	rainbow = {
+		enable = true,
+		extended_mode = true,
+		max_file_lines = nil,
+	},
 	-- ensure these language parsers are installed
 	ensure_installed = {
 		"json",
@@ -23,8 +29,7 @@ treesitter.setup({
 		"yaml",
 		"html",
 		"css",
-		"scss",
-		"markdown",
+		-- "markdown",
 		"svelte",
 		"graphql",
 		"bash",
@@ -32,13 +37,11 @@ treesitter.setup({
 		"vim",
 		"dockerfile",
 		"gitignore",
+		"python",
+		"rust",
+		"toml",
 	},
 	-- auto install above language parsers
 	auto_install = true,
-
-	-- Disable CursorHold autocmd of nvim-ts-commentstring plugin
-	context_commentstring = {
-		enable = true,
-		enable_autocmd = false,
-	},
 })
+
