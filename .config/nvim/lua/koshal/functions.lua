@@ -148,4 +148,3 @@ M.show_documentation = function()
 end
 
 return M
-

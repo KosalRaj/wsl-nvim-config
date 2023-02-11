@@ -12,7 +12,7 @@ require("gruvbox").setup({
 	contrast = "hard", -- can be "hard", "soft" or empty string
 	overrides = {},
 	dim_inactive = false,
-	transparent_mode = true,
+	transparent_mode = false,
 	palette_overrides = {
 		dark0_hard = "#0A0E14",
 		dark0 = "#282828",

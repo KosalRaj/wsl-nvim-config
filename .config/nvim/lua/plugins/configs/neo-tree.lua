@@ -3,13 +3,16 @@ if not status_ok then
 	vim.notify("Neotree not found")
 	return
 end
+
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 neo_tree.setup({
 	close_if_last_window = true,
 	enable_diagnostics = false,
 	source_selector = {
-		winbar = true,
+		winbar = false,
 		content_layout = "center",
 		tab_labels = {
 			filesystem = " File",
@@ -67,4 +70,3 @@ neo_tree.setup({
 		},
 	},
 })
-

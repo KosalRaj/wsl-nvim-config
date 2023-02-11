@@ -1,5 +1,5 @@
 return {
-  -- File explorer
+	-- File explorer
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
@@ -10,24 +10,24 @@ return {
 			require("plugins.configs.neo-tree")
 		end,
 	},
-  -- Icons
+	-- Icons
 	{
 		"kyazdani42/nvim-web-devicons",
 		config = function()
 			require("plugins.configs.nvim-webdev-icons")
 		end,
 	},
-  {
+	{
 		"ellisonleao/gruvbox.nvim",
 	},
-  -- Whichkey
+	-- Whichkey
 	{
 		"folke/which-key.nvim",
 		config = function()
 			require("plugins.configs.whichkey")
 		end,
 	},
-  -- Tabs
+	-- Tabs
 	{
 		"akinsho/bufferline.nvim",
 		lazy = false,
@@ -35,16 +35,16 @@ return {
 			require("plugins.configs.bufferline")
 		end,
 	},
-  { "moll/vim-bbye" },
-  {
+	{ "moll/vim-bbye" },
+	{
 		"tiagovla/scope.nvim",
 		config = true,
 	},
 
-  -- Maximize splits
+	-- Maximize splits
 	{ "szw/vim-maximizer" },
 
-  -- Surround words with: "({[
+	-- Surround words with: "({[
 	{
 		"kylechui/nvim-surround",
 		config = function()
@@ -52,15 +52,15 @@ return {
 		end,
 	},
 
-  --Comment Stuff
-  {
+	--Comment Stuff
+	{
 		"numToStr/Comment.nvim",
 		config = function()
 			require("plugins.configs.comment")
 		end,
 	},
 
-  -- Telescope, Fzfinder
+	-- Telescope, Fzfinder
 	{
 		"nvim-telescope/telescope.nvim",
 		config = function()
@@ -77,7 +77,7 @@ return {
 	},
 	{ "ibhagwan/fzf-lua" },
 
-  -- Dashboard Init
+	-- Dashboard Init
 	{
 		"goolord/alpha-nvim",
 		config = function()
@@ -85,7 +85,7 @@ return {
 		end,
 	},
 
-  -- Treesitter
+	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
@@ -96,7 +96,7 @@ return {
 	{ "p00f/nvim-ts-rainbow" },
 	{ "nvim-treesitter/playground" },
 
-  -- Auto completions
+	-- Auto completions
 	{ "hrsh7th/cmp-buffer" }, -- buffer completions
 	{ "hrsh7th/cmp-path" }, -- path completions
 	{ "hrsh7th/cmp-cmdline" }, -- cmdline completions
@@ -115,7 +115,7 @@ return {
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "rafamadriz/friendly-snippets" },
 
-  -- Manage and Install LSP servers
+	-- Manage and Install LSP servers
 	{ "williamboman/mason-lspconfig" },
 	{
 		"williamboman/mason.nvim",
@@ -124,7 +124,7 @@ return {
 		end,
 	},
 
-  -- Config for LSP Servers
+	-- Config for LSP Servers
 	{
 		"glepnir/lspsaga.nvim",
 		config = function()
@@ -139,7 +139,7 @@ return {
 		end,
 	},
 
-  -- Formatting
+	-- Formatting
 	{ "jayp0521/mason-null-ls.nvim" },
 	{
 		"jose-elias-alvarez/null-ls.nvim",
@@ -148,7 +148,7 @@ return {
 		end,
 	},
 
-  -- Auto closing
+	-- Auto closing
 	{
 		"windwp/nvim-autopairs",
 		config = function()
@@ -157,7 +157,7 @@ return {
 	},
 	{ "windwp/nvim-ts-autotag" },
 
-  -- Git integration
+	-- Git integration
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
@@ -179,7 +179,7 @@ return {
 	{ "mattn/vim-gist" },
 	{ "mattn/webapi-vim" },
 
-  -- Color
+	-- Color
 	{
 		"NvChad/nvim-colorizer.lua",
 		config = function()
@@ -187,7 +187,7 @@ return {
 		end,
 	},
 
-  -- Sessions TODO: Check the keybinds
+	-- Sessions TODO: Check the keybinds
 	{
 		"rmagatti/auto-session",
 		config = function()
@@ -195,7 +195,7 @@ return {
 		end,
 	},
 
-  -- UI
+	-- UI
 	{
 		"stevearc/dressing.nvim",
 		config = function()
@@ -211,7 +211,7 @@ return {
 	},
 	{ "kshenoy/vim-signature" },
 
-  -- Notification
+	-- Notification
 	{
 		"rcarriga/nvim-notify",
 		config = function()
@@ -219,7 +219,7 @@ return {
 		end,
 	},
 
-  -- Smooth scroll
+	-- Smooth scroll
 	{
 		"karb94/neoscroll.nvim",
 		config = function()
@@ -227,7 +227,7 @@ return {
 		end,
 	},
 
-  -- Match up blocks of code TODO: Check keybinds
+	-- Match up blocks of code TODO: Check keybinds
 	{
 		"andymass/vim-matchup",
 		config = function()
@@ -235,7 +235,7 @@ return {
 		end,
 	},
 
-  -- Bookmarks
+	-- Bookmarks
 	{
 		"MattesGroeger/vim-bookmarks",
 		config = function()
@@ -243,7 +243,7 @@ return {
 		end,
 	},
 
-  -- Harpoon
+	-- Harpoon
 	{
 		"ThePrimeagen/harpoon",
 		config = function()
@@ -251,7 +251,7 @@ return {
 		end,
 	},
 
-  -- Todo Comment TODO: Check the keybinds
+	-- Todo Comment TODO: Check the keybinds
 	{
 		"folke/todo-comments.nvim",
 		config = function()
@@ -259,7 +259,7 @@ return {
 		end,
 	},
 
-  -- toggle Term TODO: Check the keybinds
+	-- toggle Term TODO: Check the keybinds
 	{
 		"akinsho/toggleterm.nvim",
 		config = function()
@@ -267,10 +267,13 @@ return {
 		end,
 	},
 
-  -- Impatient optimize the startup time
+	-- Vista: Ctags vizualizer TODO: Check the keybinds
+	{ "liuchengxu/vista.vim" },
+
+	-- Impatient optimize the startup time
 	{ "lewis6991/impatient.nvim" },
 
-  -- Spectre: Better find and replace
+	-- Spectre: Better find and replace
 	{
 		"windwp/nvim-spectre",
 		config = function()
@@ -278,13 +281,24 @@ return {
 		end,
 	},
 
-  -- Diffview
+	-- Diffview
 	{
 		"sindrets/diffview.nvim",
 		config = true,
 	},
 
-  -- tmux & split window navigation
-  { "christoomey/vim-tmux-navigator" },
+	-- tmux & split window navigation
+	{ "christoomey/vim-tmux-navigator" },
 
+	-- Ui Noice
+	-- experimental
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+			presets = {
+				command_palette = true,
+			},
+		},
+	},
 }
