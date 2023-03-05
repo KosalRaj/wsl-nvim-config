@@ -16,14 +16,7 @@ return require('packer').startup(function(use)
 
   use {
 	  'ellisonleao/gruvbox.nvim',
-	  as = "gruvbox",
-	  config = function()
-		  require('gruvbox').setup({
-			  contrast = "hard",
-			  transparent_mode = true
-		  })
-		  vim.cmd('colorscheme gruvbox')
-	  end
+	  as = "gruvbox"
   }
 
   use {
@@ -70,12 +63,7 @@ return require('packer').startup(function(use)
     "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
   }
-  use {
-    "terrortylor/nvim-comment",
-    config = function ()
-      require('nvim_comment').setup({comment_empty = false})
-    end
-  }
+  use "terrortylor/nvim-comment"
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
