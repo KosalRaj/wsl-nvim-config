@@ -1,54 +1,24 @@
 return {
-	-- File explorer
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
-		module = "neo-tree",
-		cmd = "Neotree",
-		dependencies = { { "MunifTanjim/nui.nvim", module = "nui" }, "nvim-lua/plenary.nvim" },
+		"ellisonleao/gruvbox.nvim",
+	},
+	{
+		"nvim-lua/plenary.nvim",
+	},
+
+	-- Nvimtree file explorer/manager
+	{
+		"nvim-tree/nvim-tree.lua",
 		config = function()
-			require("plugins.configs.neo-tree")
+			require("plugins.configs.nvim-tree")
 		end,
 	},
+
 	-- Icons
 	{
 		"kyazdani42/nvim-web-devicons",
 		config = function()
 			require("plugins.configs.nvim-webdev-icons")
-		end,
-	},
-	{
-		"ellisonleao/gruvbox.nvim",
-	},
-	-- Whichkey
-	{
-		"folke/which-key.nvim",
-		config = function()
-			require("plugins.configs.whichkey")
-		end,
-	},
-	-- Tabs
-	{
-		"akinsho/bufferline.nvim",
-		lazy = false,
-		config = function()
-			require("plugins.configs.bufferline")
-		end,
-	},
-	{ "moll/vim-bbye" },
-	{
-		"tiagovla/scope.nvim",
-		config = true,
-	},
-
-	-- Maximize splits
-	{ "szw/vim-maximizer" },
-
-	-- Surround words with: "({[
-	{
-		"kylechui/nvim-surround",
-		config = function()
-			require("plugins.configs.surround")
 		end,
 	},
 
@@ -60,28 +30,31 @@ return {
 		end,
 	},
 
-	-- Telescope, Fzfinder
+	-- Todo Comment
 	{
-		"nvim-telescope/telescope.nvim",
+		"folke/todo-comments.nvim",
 		config = function()
-			require("plugins.configs.telescope")
+			require("plugins.configs.todo-comments")
 		end,
 	},
-	{ "nvim-telescope/telescope-media-files.nvim" },
-	{ "nvim-telescope/telescope-fzf-native.nvim" },
-	{
-		"ahmedkhalf/project.nvim",
-		config = function()
-			require("plugins.configs.project")
-		end,
-	},
-	{ "ibhagwan/fzf-lua" },
 
-	-- Dashboard Init
+	-- Whichkey
 	{
-		"goolord/alpha-nvim",
+		"folke/which-key.nvim",
 		config = function()
-			require("plugins.configs.alpha")
+			require("plugins.configs.whichkey")
+		end,
+	},
+
+	{ "christoomey/vim-tmux-navigator" }, -- maximizes and restores current window
+
+	{ "szw/vim-maximizer" }, -- maximizes and restores current window
+
+	-- statusline
+	{
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("plugins.configs.lualine")
 		end,
 	},
 
@@ -96,24 +69,67 @@ return {
 	{ "p00f/nvim-ts-rainbow" },
 	{ "nvim-treesitter/playground" },
 
-	-- Auto completions
-	{ "hrsh7th/cmp-buffer" }, -- buffer completions
-	{ "hrsh7th/cmp-path" }, -- path completions
-	{ "hrsh7th/cmp-cmdline" }, -- cmdline completions
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-emoji" },
-	{ "hrsh7th/cmp-nvim-lua" },
+	-- autocompletion
 	{
 		"hrsh7th/nvim-cmp",
 		config = function()
 			require("plugins.configs.cmp")
 		end,
-	},
+	}, -- completion plugin
+	{ "hrsh7th/cmp-buffer" }, -- source for text in buffer
+	{ "hrsh7th/cmp-path" }, -- source for file system paths
+	{ "hrsh7th/cmp-nvim-lsp" },
 
 	-- Shippets
-	{ "L3MON4D3/LuaSnip" },
-	{ "saadparwaiz1/cmp_luasnip" },
-	{ "rafamadriz/friendly-snippets" },
+	{ "L3MON4D3/LuaSnip" }, -- snippet engine
+	{ "saadparwaiz1/cmp_luasnip" }, -- for autocompletion
+	{ "rafamadriz/friendly-snippets" }, -- useful snippets
+
+	-- Auto closing
+	{
+		"windwp/nvim-autopairs",
+		config = function()
+			require("plugins.configs.autopairs")
+		end,
+	},
+	{ "windwp/nvim-ts-autotag" },
+
+	-- Color
+	{
+		"NvChad/nvim-colorizer.lua",
+		config = function()
+			require("plugins.configs.colorize")
+		end,
+	},
+
+	-- Telescope, Fzfinder
+	{
+		"nvim-telescope/telescope.nvim",
+		config = function()
+			require("plugins.configs.telescope")
+		end,
+	},
+	{ "nvim-telescope/telescope-media-files.nvim" },
+	{
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "make",
+	},
+	-- {
+	--   "ahmedkhalf/project.nvim",
+	--   config = function()
+	--     require("plugins.configs.project")
+	--   end,
+	-- },
+	{ "ibhagwan/fzf-lua" },
+	{ "nvim-telescope/telescope-ui-select.nvim" },
+
+	-- Surround words with: "({[
+	{
+		"kylechui/nvim-surround",
+		config = function()
+			require("plugins.configs.surround")
+		end,
+	},
 
 	-- Manage and Install LSP servers
 	{ "williamboman/mason-lspconfig" },
@@ -131,7 +147,8 @@ return {
 			require("plugins.configs.lsp.lspsaga")
 		end,
 	},
-	{ "onsails/lspkind.nvim" },
+	{ "onsails/lspkind.nvim" }, -- vs-code like icons for autocompletion
+	{ "jose-elias-alvarez/typescript.nvim" },
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
@@ -147,15 +164,6 @@ return {
 			require("plugins.configs.lsp.null-ls")
 		end,
 	},
-
-	-- Auto closing
-	{
-		"windwp/nvim-autopairs",
-		config = function()
-			require("plugins.configs.autopairs")
-		end,
-	},
-	{ "windwp/nvim-ts-autotag" },
 
 	-- Git integration
 	{
@@ -179,46 +187,6 @@ return {
 	{ "mattn/vim-gist" },
 	{ "mattn/webapi-vim" },
 
-	-- Color
-	{
-		"NvChad/nvim-colorizer.lua",
-		config = function()
-			require("plugins.configs.colorize")
-		end,
-	},
-
-	-- Sessions TODO: Check the keybinds
-	{
-		"rmagatti/auto-session",
-		config = function()
-			require("plugins.configs.auto-session")
-		end,
-	},
-
-	-- UI
-	{
-		"stevearc/dressing.nvim",
-		config = function()
-			require("plugins.configs.dressing")
-		end,
-	},
-	{
-		"SmiteshP/nvim-navic",
-		config = function()
-			require("plugins.configs.navic")
-		end,
-		dependencies = { { "neovim/nvim-lspconfig" } },
-	},
-	{ "kshenoy/vim-signature" },
-
-	-- Notification
-	{
-		"rcarriga/nvim-notify",
-		config = function()
-			require("plugins.configs.notify")
-		end,
-	},
-
 	-- Smooth scroll
 	{
 		"karb94/neoscroll.nvim",
@@ -227,59 +195,8 @@ return {
 		end,
 	},
 
-	-- Match up blocks of code TODO: Check keybinds
-	{
-		"andymass/vim-matchup",
-		config = function()
-			require("plugins.configs.matchup")
-		end,
-	},
-
-	-- Bookmarks
-	{
-		"MattesGroeger/vim-bookmarks",
-		config = function()
-			require("plugins.configs.bookmark")
-		end,
-	},
-
-	-- Harpoon
-	{
-		"ThePrimeagen/harpoon",
-		config = function()
-			require("plugins.configs.harpoon")
-		end,
-	},
-
-	-- Todo Comment TODO: Check the keybinds
-	{
-		"folke/todo-comments.nvim",
-		config = function()
-			require("plugins.configs.todo-comments")
-		end,
-	},
-
-	-- toggle Term TODO: Check the keybinds
-	{
-		"akinsho/toggleterm.nvim",
-		config = function()
-			require("plugins.configs.toggle-term")
-		end,
-	},
-
-	-- Vista: Ctags vizualizer TODO: Check the keybinds
-	{ "liuchengxu/vista.vim" },
-
 	-- Impatient optimize the startup time
 	{ "lewis6991/impatient.nvim" },
-
-	-- Spectre: Better find and replace
-	{
-		"windwp/nvim-spectre",
-		config = function()
-			require("plugins.configs.spectre")
-		end,
-	},
 
 	-- Diffview
 	{
@@ -287,18 +204,12 @@ return {
 		config = true,
 	},
 
-	-- tmux & split window navigation
-	{ "christoomey/vim-tmux-navigator" },
-
-	-- Ui Noice
-	-- experimental
+	-- Extract react components
 	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		opts = {
-			presets = {
-				command_palette = true,
-			},
-		},
+		"napmn/react-extract.nvim",
+		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+		config = function()
+			require("plugins.configs.react-extract")
+		end,
 	},
 }

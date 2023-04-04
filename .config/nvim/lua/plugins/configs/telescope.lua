@@ -154,4 +154,3 @@ telescope.setup({
 		},
 	},
 })
-

@@ -1,49 +1,33 @@
-local mason_status_ok, mason = pcall(require, "mason")
-if not mason_status_ok then
+-- import mason plugin safely
+local mason_status, mason = pcall(require, "mason")
+if not mason_status then
 	return
 end
 
-local lsp_status_ok, mason_lsp = pcall(require, "mason-lspconfig")
-if not lsp_status_ok then
+-- import mason-lspconfig plugin safely
+local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lspconfig_status then
 	return
 end
 
+-- import mason-null-ls plugin safely
 local mason_null_ls_status, mason_null_ls = pcall(require, "mason-null-ls")
 if not mason_null_ls_status then
 	return
 end
 
-local config = {
-	-- disable virtual text
-	virtual_text = false,
-	update_in_insert = true,
-	underline = true,
-	severity_sort = true,
-	float = {
-		focusable = true,
-		style = "minimal",
-		border = "rounded",
-		source = "always",
-		header = "",
-		prefix = "",
-		-- width = 40,
-	},
-}
-
-vim.diagnostic.config(config)
+-- enable mason
 mason.setup()
 
-mason_lsp.setup({
+mason_lspconfig.setup({
 	-- list of servers for mason to install
 	ensure_installed = {
-		"dockerls",
-		"sumneko_lua",
-		"jsonls",
-    "tsserver",
+		"tsserver",
 		"html",
 		"cssls",
 		"tailwindcss",
-    "emmet_ls",
+		"lua_ls",
+		"emmet_ls",
 		"stylelint_lsp",
 		"marksman",
 	},

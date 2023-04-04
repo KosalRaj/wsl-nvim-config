@@ -89,94 +89,16 @@ local m_opts = {
 
 local mappings = {
 	["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
-	["b"] = { "<cmd>lua require('koshal.bfs').open()<cr>", "Buffers" },
-	["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
-	["q"] = { '<cmd>lua require("koshal.functions").smart_quit()<CR>', "Quit" },
-	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-	["gy"] = "Open code in Browser",
-	["."] = "Goto next harpoon",
-	[","] = "Goto next harpoon",
-
-	u = {
-		name = "TodoComments",
-		["t"] = { "<cmd>TodoTelescope<CR>", "Show Comments" },
-		["q"] = { "<cmd>TodoQuickFix<CR>", "Quick Fix" },
-		["l"] = { "<cmd>TodoLocList<CR>", "List Comments" },
-	},
-
-	B = {
-		name = "Bookmarks",
-		a = { "<cmd>silent BookmarkAnnotate<cr>", "Annotate" },
-		c = { "<cmd>silent BookmarkClear<cr>", "Clear" },
-		t = { "<cmd>silent BookmarkToggle<cr>", "Toggle" },
-		m = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
-		n = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon Toggle" },
-		l = { "<cmd>lua require('koshal.bfs').open()<cr>", "Buffers" },
-		j = { "<cmd>silent BookmarkNext<cr>", "Next" },
-		s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
-		k = { "<cmd>silent BookmarkPrev<cr>", "Prev" },
-		S = { "<cmd>silent BookmarkShowAll<cr>", "Prev" },
-		x = { "<cmd>BookmarkClearAll<cr>", "Clear All" },
-	},
-
-	p = {
-		name = "Lazy",
-		c = { "<cmd>Lazy check<cr>", "Check" },
-		C = { "<cmd>Lazy clean<cr>", "Clean" },
-		i = { "<cmd>Lazy install<cr>", "Install" },
-		s = { "<cmd>Lazy sync<cr>", "Sync" },
-		u = { "<cmd>Lazy update<cr>", "Update" },
-		r = { "<cmd>Lazy restore<cr>", "Restore" },
-		l = { "<cmd>Lazy<cr>", "Lazy" },
-	},
-
-	o = {
-		name = "Options",
-		w = { '<cmd>lua require("koshal.functions").toggle_option("wrap")<cr>', "Wrap" },
-		r = { '<cmd>lua require("koshal.functions").toggle_option("relativenumber")<cr>', "Relative" },
-		l = { '<cmd>lua require("koshal.functions").toggle_option("cursorline")<cr>', "Cursorline" },
-		s = { '<cmd>lua require("koshal.functions").toggle_option("spell")<cr>', "Spell" },
-		t = { '<cmd>lua require("koshal.functions").toggle_tabline()<cr>', "Tabline" },
-	},
-
-	w = {
-		name = "Window",
-		v = { "<C-w>v", "Vertical Split" },
-		h = { "<C-w>s", "Horizontal Split" },
-		e = { "<C-w>=", "Make Splits Equal" },
-		q = { ":close<CR>", "Close Split" },
-		m = { ":MaximizerToggle<CR>", "Toggle Maximizer" },
-	},
-
-	s = {
-		name = "Session",
-		s = { "<cmd>SaveSession<cr>", "Save" },
-		r = { "<cmd>RestoreSession<cr>", "Restore" },
-		x = { "<cmd>DeleteSession<cr>", "Delete" },
-		f = { "<cmd>Autosession search<cr>", "Find" },
-		d = { "<cmd>Autosession delete<cr>", "Find Delete" },
-	},
-
-	r = {
-		name = "Replace",
-		r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
-		w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
-		f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
-	},
-
-	d = {
-		name = "Debug",
-		b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
-		c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-		i = { "<cmd>lua require'dap'.step_into()<cr>", "Into" },
-		o = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
-		O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
-		r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
-		l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
-		u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
-		x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
-	},
+	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+	["w"] = { "<cmd>w!<CR>", "Save" },
+	["q"] = { "<cmd>q!<CR>", "Quit" },
+	--  ["b"] = { "<cmd>lua require('koshal.bfs').open()<cr>", "Buffers" },
+	--  ["q"] = { '<cmd>lua require("koshal.functions").smart_quit()<CR>', "Quit" },
+	-- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+	-- ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+	-- ["gy"] = "Open code in Browser",
+	-- ["."] = "Goto next harpoon",
+	-- [","] = "Goto next harpoon",
 
 	f = {
 		name = "Find",
@@ -263,6 +185,38 @@ local mappings = {
 		u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
 	},
 
+	m = {
+		name = "Markdown",
+		p = {
+			"<cmd>MarkdownPreviewToggle<cr>",
+			"Preview Toggle",
+		},
+		i = {
+			"<cmd>PasteImg<cr>",
+			"Paste Image",
+		},
+	},
+
+	p = {
+		name = "Lazy",
+		c = { "<cmd>Lazy check<cr>", "Check" },
+		C = { "<cmd>Lazy clean<cr>", "Clean" },
+		i = { "<cmd>Lazy install<cr>", "Install" },
+		s = { "<cmd>Lazy sync<cr>", "Sync" },
+		u = { "<cmd>Lazy update<cr>", "Update" },
+		r = { "<cmd>Lazy restore<cr>", "Restore" },
+		l = { "<cmd>Lazy<cr>", "Lazy" },
+	},
+
+	s = {
+		name = "Window",
+		v = { "<C-w>v", "Vertical Split" },
+		h = { "<C-w>s", "Horizontal Split" },
+		e = { "<C-w>=", "Make Splits Equal" },
+		q = { ":close<CR>", "Close Split" },
+		m = { ":MaximizerToggle<CR>", "Toggle Maximizer" },
+	},
+
 	S = {
 		name = "SnipRun",
 		c = { "<cmd>SnipClose<cr>", "Close" },
@@ -295,6 +249,13 @@ local mappings = {
 		p = { "<cmd>TSPlaygroundToggle<cr>", "Playground" },
 		r = { "<cmd>TSToggle rainbow<cr>", "Rainbow" },
 	},
+
+	u = {
+		name = "TodoComments",
+		["t"] = { "<cmd>TodoTelescope<CR>", "Show Comments" },
+		["q"] = { "<cmd>TodoQuickFix<CR>", "Quick Fix" },
+		["l"] = { "<cmd>TodoLocList<CR>", "List Comments" },
+	},
 }
 
 local vopts = {
@@ -305,9 +266,21 @@ local vopts = {
 	noremap = true, -- use `noremap` when creating keymaps
 	nowait = true, -- use `nowait` when creating keymaps
 }
+
 local vmappings = {
 	["/"] = { "<Plug>(comment_toggle_linewise_visual)", "Comment toggle linewise (visual)" },
 	s = { "<esc><cmd>'<,'>SnipRun<cr>", "Run range" },
+	r = {
+		name = "React",
+		e = {
+			"<Cmd>lua require('react-extract').extract_to_current_file()<CR>",
+			"Extract Component",
+		},
+		f = {
+			"<Cmd>lua require('react-extract').extract_to_new_file()<CR>",
+			"Extract Component to New File",
+		},
+	},
 }
 
 which_key.setup(setup)

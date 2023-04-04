@@ -27,3 +27,4 @@ colorizer.setup({
 	buftypes = {},
 })
 
+

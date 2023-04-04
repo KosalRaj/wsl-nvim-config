@@ -1,7 +1,4 @@
-require("koshal.keymaps")
-require("koshal.options")
-require("koshal.functions")
-require("koshal.globals")
-
+require("koshal.core.keymaps")
+require("koshal.core.options")
 require("koshal.lazy")
-require("koshal.colorscheme")
+require("koshal.core.colorscheme")

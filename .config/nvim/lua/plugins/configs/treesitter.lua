@@ -29,19 +29,21 @@ treesitter.setup({
 		"yaml",
 		"html",
 		"css",
-		-- "markdown",
-		"svelte",
-		"graphql",
+		"markdown",
 		"bash",
 		"lua",
 		"vim",
 		"dockerfile",
 		"gitignore",
-		"python",
-		"rust",
-		"toml",
 	},
 	-- auto install above language parsers
 	auto_install = true,
+
+  -- Disable CursorHold autocmd of nvim-ts-commentstring plugin
+	context_commentstring = {
+		enable = true,
+		enable_autocmd = false,
+	},
 })
+
 
