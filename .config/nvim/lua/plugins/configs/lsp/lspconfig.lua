@@ -47,7 +47,8 @@ local on_attach = function(client, bufnr)
 end
 
 -- used to enable autocompletion (assign to every lsp server config)
-local capabilities = cmp_nvim_lsp.default_capabilities()
+local cap = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities(cap)
 
 -- Change the Diagnostic symbols in the sign column (gutter)
 -- (not in youtube nvim video)
@@ -116,4 +117,3 @@ lspconfig["lua_ls"].setup({
 		},
 	},
 })
-

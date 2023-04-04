@@ -10,6 +10,9 @@ saga.setup({
 	-- use enter to open file with definition preview
 	definition = {
 		edit = "<CR>",
+		vsplit = "<C-c>v",
+		split = "<C-c>h",
+		quit = "q",
 	},
 	ui = {
 		colors = {
@@ -17,4 +20,3 @@ saga.setup({
 		},
 	},
 })
-
